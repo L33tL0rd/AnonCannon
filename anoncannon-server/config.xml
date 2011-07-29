@@ -1,0 +1,9 @@
+<!-- Config file for Annoncannon -->
+<root>
+<!-- 0 -->  <admin_us>L0rd</admin_us>
+<!-- 1 -->  <admin_pw>L33t</admin_pw>
+<!-- 2 -->  <client-port>1337</client-port>
+<!-- 3 -->  <current_target>http://localhost</current_target>
+<!-- 4 -->  <welcome_message>Welcome to the DDoS Server</welcome_message>
+<!-- 5 -->  <raid-name>Sample RAID</raid-name>
+</root>
