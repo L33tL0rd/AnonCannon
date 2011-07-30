@@ -42,41 +42,54 @@ Server ip is:""" + self.get_own_ip() + "\nServer OS is:" + sys.platform + "\nRoo
     srv.register_function(self.welcome_message)
     srv.register_function(self.groups)
     srv.register_function(self.get_raid_name)
-    print "server started."
+    print "[+] Server started."
     srv.serve_forever()
     return 0
   def welcome_message(self):
     return self.get_config(4)
   def get_raid_name(self):
     return self.get_config(5)
-  #This algo is a little bit Buggy. Sorry.
+  def group_up(self, number):
+    l33t = int(self.read_from_file("tmp/group" + str(number)))
+    l33t += 1
+    self.write_to_file("tmp/group" + str(number), str(l33t))
+    return 0
   def groups(self):
-    group1 = int(self.read_from_file("tmp/group1"))
-    group2 = int(self.read_from_file("tmp/group2"))
-    group3 = int(self.read_from_file("tmp/group3"))
-    group4 = int(self.read_from_file("tmp/group4"))
-    group_number = 0
-    if(group1 < group2):
-      group_number = 1
-      w00t = int(self.read_from_file("tmp/group1"))
-      w00t += 1
-      self.write_to_file("tmp/group1 ", str(w00t))
-    elif(group2 < group3):
-      group_number = 2
-      w00t = int(self.read_from_file("tmp/group2"))
-      w00t += 1
-      self.write_to_file("tmp/group2". str(w00t))
-    elif(group3 < group4):
-      group_number = 3
-      w00t = int(self.read_from_file("tmp/group3"))
-      w00t += 1
-      self.write_to_file("tmp/group3", str(w00t))
-    elif(group4 < group3):
-      group_number = 4
-      w00t = int(self.read_from_file("tmp/group4"))
-      w00t += 1
-      self.write_to_file("tmp/group4", str(w00t))
-    return group_number
+    #This 1 is smarter then the old or?
+    last_group = int(self.read_from_file("tmp/lastgroup"))
+    last_group -= 1
+    if(last_group == 0):
+      last_group = 4
+    group_number = last_group
+    self.group_up(group_number)
+    self.write_to_file("tmp/lastgroup", str(group_number))
+#Old Algorythm. Not more in use.
+#    group1 = int(self.read_from_file("tmp/group1"))
+#    group2 = int(self.read_from_file("tmp/group2"))
+#    group3 = int(self.read_from_file("tmp/group3"))
+#    group4 = int(self.read_from_file("tmp/group4"))
+#    group_number = 0
+#    if(group1 < group2):
+#      group_number = 1
+#      w00t = int(self.read_from_file("tmp/group1"))
+#      w00t += 1
+#     self.write_to_file("tmp/group1 ", str(w00t))
+#    elif(group2 < group3):
+#      group_number = 2
+#      w00t = int(self.read_from_file("tmp/group2"))
+#      w00t += 1
+#      self.write_to_file("tmp/group2". str(w00t))
+#    elif(group3 < group4):
+#      group_number = 3
+#      w00t = int(self.read_from_file("tmp/group3"))
+#      w00t += 1
+#      self.write_to_file("tmp/group3", str(w00t))
+#    elif(group4 < group3):
+#      group_number = 4
+#      w00t = int(self.read_from_file("tmp/group4"))
+#      w00t += 1
+#      self.write_to_file("tmp/group4", str(w00t))
+    return str(group_number)
   def write_to_file(self, file, value):
     fd = open(file, "w")
     fd.write(value)
@@ -87,7 +100,16 @@ Server ip is:""" + self.get_own_ip() + "\nServer OS is:" + sys.platform + "\nRoo
     value = fd.read()
     fd.close
     return value
+  def startup(self):
+     print "[-] Cleaning Group files."
+     self.write_to_file("tmp/group1", "0")
+     self.write_to_file("tmp/group2", "0")
+     self.write_to_file("tmp/group3", "0")
+     self.write_to_file("tmp/group4", "0")
+     self.write_to_file("tmp/lastgroup", "1")
+     print "[+] Groups Files clean."
 #Starting interface...
 start = main()
 start.print_welcome_header()
+start.startup()
 start.start_server()

