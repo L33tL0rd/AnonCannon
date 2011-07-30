@@ -9,9 +9,24 @@ There are many to add:
 + Stop the terrible Server outputs
 + Much more Tech Stuff.
 
-This is written in Python - http://python.org
+This is written in Python - https://python.org
 This is licensed under the BY-NC-SA 3.0 - https://creativecommons.org/licenses/by-nc-sa/3.0/
 
 If you want to know exactlyier about the Status, please follow me on Twitter.
 http://twitter.com/#!/l33t_l0rd 
+To contact me(L33tL0rd) use this email l33t-l0rd@centrum.cz
 Thank You!
+-------------------------------------------------------------------------------
+
+NOTES TO VERSION ALPHA 1.5
+
+The most Changes are in the Client.
+What excatly changed?
+
+[+] Client supports PROXY's (Yay!)
+[+] Client know a file called "language.xml" if it's exist in the it 
+      will use it to configure it's language.
+ 
+A german language file is avaible here:https://gist.github.com/1116074
+If you want to translate it in your language, feel free to send me your
+translation file!(My mail is: l33t-l0rd@centrum.cz)

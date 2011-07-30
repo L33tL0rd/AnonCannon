@@ -20,7 +20,7 @@ class main(object):
   # Function for the welcome header 
   def print_welcome_header(self):
     print """----------------------------------------------------
--------------AnonCannon v.0.1 BETA------------------
+-------------AnonCannon v.1 ALPHA------------------
 ----------------------------------------------------
 Server information:
 Server ip is:""" + self.get_own_ip() + "\nServer OS is:" + sys.platform + "\nRoot user is:" + self.get_config(0) +"\nRoot Password is:" + self.get_pw()
