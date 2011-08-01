@@ -6,4 +6,5 @@
 <!-- 3 -->  <current_target>http://localhost/</current_target>
 <!-- 4 -->  <welcome_message>Welcome to the DDoS Server</welcome_message>
 <!-- 5 -->  <raid-name>Sample RAID</raid-name>
+<!-- 6 -->  <web-backend-port>8080</web-backend-port>
 </root>

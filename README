@@ -1,3 +1,7 @@
+SECURITY WARNING:
+THIS VERSION HAS A BUG, YOU CAN ACCESS THE config.xml OVER THE WEBINTERFACE
+BUT YOU CAN USE THIS VERSION, PASSWORD IS IN THE MOMENT NOT IN USE.
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 AnonCannon Alpha 1 Readme -
 This is only an Alpha, it isn't the Final. Please take that to your Mind.
 What is the Sence of this? Why i don't call it "Yet another DDoS Client"?

