@@ -34,3 +34,13 @@ What excatly changed?
 A german language file is avaible here:https://gist.github.com/1116074
 If you want to translate it in your language, feel free to send me your
 translation file!(My mail is: l33t-l0rd@centrum.cz)
+--------------------------------------------------------------------------------
+
+NOTES TO VERSION ALPHA 1.6
+
+What is new? The Webinterface! I is a little change i know, but after
+fixing the Security Leak you can Administrat you server... Over your Webbrowser.
+Great idea or?
+But i found some strange fails in the Code, so the next Version won't
+bring much visible Changes, only Perfomance and Securtiy-fixes.
+
